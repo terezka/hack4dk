@@ -4,9 +4,14 @@ let Actions = Constants.Actions;
 
 export default {
 	RetriveImages: (property, value) => {
-		dispatch(Actions.UPDATE_IMAGE, {
+		dispatch(Actions.ADD_IMAGE, {
 			property: property,
 			value: value
+		});
+	},
+	RetriveComments: (response) => {
+		dispatch(Actions.ADD_COMMENTS, {
+			response: response,
 		});
 	}
 }

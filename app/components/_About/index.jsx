@@ -2,7 +2,6 @@ import React from 'react';
 import Radium, { Style } from 'radium';
 
 import ImageStore from 'stores/ImageStore.js';
-import ImageActions from 'actions/ImageActions.js';
 import Constants from 'constants';
 
 let getStateFromStore = () => {

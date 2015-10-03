@@ -11,7 +11,7 @@ class Auth extends React.Component {
   render() {
     return (
     	<div>
-    		authorizing 2
+    		authorizing
     	</div>
     );
   }

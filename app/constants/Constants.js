@@ -6,6 +6,7 @@ let Constants = {
 	Actions : KeyMirror({
 		UPDATE_IMAGE : null,
 		RECEIVE_INSTAGRAM: null,
+		ADD_COMMENTS: null,
 		RECEIVE_ERROR: null,
 
 		AUTHORIZE_USER: null,
@@ -21,6 +22,9 @@ Constants.Various = {
 		clientID: 'e69ed6c34abd4551b9ddeb22a233936b',
 		selfURL: 'https://api.instagram.com/v1/users/{user-id}/?access_token=',
 		searchURL: 'https://api.instagram.com/v1/media/search?'
+	},
+	SMK: {
+		URL: 'http://solr.smk.dk:8080/solr/prod_all_dk/select'
 	}
 }
 

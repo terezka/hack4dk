@@ -27,7 +27,7 @@ class UserStore extends BaseStore {
     }
 
     unauthorizeUser() {
-        this._User.token = null;
+        this._User = {};
         localStorage.removeItem('instagram_user_token');
     }
 
