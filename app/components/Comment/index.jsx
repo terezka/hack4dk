@@ -30,7 +30,7 @@ var style = {
     },
     w_hover: {
         ':hover': {
-            backgroundColor: '#79A3AD',
+            backgroundColor: 'rgba(18, 86, 136, 0.5)',
             opacity: '0.9',
             borderRadius: '3px'
         }

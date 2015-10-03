@@ -46,7 +46,7 @@ class Images extends React.Component {
         return (
             <Col xs={12} md={6}>
                 {(header) && <ProfileHeader {...header}/>}
-                <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} slide={false}>
+                <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} interval={0}>
                     <CarouselItem>
                         <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/9.jpg')}/>
                     </CarouselItem>
