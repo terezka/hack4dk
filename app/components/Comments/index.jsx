@@ -98,7 +98,7 @@ class Comments extends React.Component {
                 <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
                 <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
                 <Well style={{marginTop: '15px'}}>
-                    {(currentComment) ? currentComment.map((comment, key) => {return <Comment {...comment} handlePick={this.handlePick} key={key} Key={key}/>}) : <p>no comment</p>}
+                    {(currentComment) ? currentComment.map((comment, key) => {return <Comment {...comment} handlePick={this.handlePick} key={key} Key={key}/>}) : <p>Loading...</p>}
                 </Well>
             </Col>
         );

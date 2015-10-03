@@ -12,8 +12,7 @@ let getStateFromStore = () => {
     return { 
         images: ContentStore.images,
         pagination: ContentStore.pagination,
-        imageKey: ContentStore.imageKey,
-        comment: ContentStore.comment
+        comment: ContentStore.comment //imageKey: ContentStore.imageKey,
     };
 };
 
@@ -23,6 +22,7 @@ class Comments extends React.Component {
         super(props);
         this.state = getStateFromStore();
         this.direction = null;
+        this.imageKey = 0;
         this.handleSelect = this.handleSelect.bind(this);
         this._onChange = this._onChange.bind(this);
     }
@@ -41,21 +41,19 @@ class Comments extends React.Component {
             <Col xs={12} md={6}>
                 <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} slide={false}>
                     <CarouselItem>
-                        <img height={500} alt="900x500" src={require('images/1.jpg')}/>
+                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/1.jpg')}/>
                     </CarouselItem>
                     <CarouselItem>
-                        <img height={500} alt="900x500" src={require('images/2.jpg')}/>
+                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/2.jpg')}/>
                     </CarouselItem>
                     <CarouselItem>
-                        <img height={500} alt="900x500" src={require('images/3.jpg')}/>
+                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/3.jpg')}/>
                     </CarouselItem>
                     <CarouselItem>
-                        <img height={500} alt="900x500" src={require('images/4.jpg')}/>
+                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/4.jpg')}/>
                     </CarouselItem>
                 </Carousel>
-                <div style={[style.caption]} className="carousel-caption">
-                    <p>{comment}</p>
-                </div>
+                {(comment) && <div style={[style.caption]} className="carousel-caption"><p>{comment}</p></div>}
             </Col>
         );
     }
@@ -75,6 +73,9 @@ let style = {
         width: '100%',
         right: 0,
         left: 0,
+        bottom: 0,
+        padding: '1em',
+        paddingBottom: '50px',
         backgroundColor: 'rgba(0, 0, 0, 0.75)'
     }
 }
