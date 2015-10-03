@@ -7,7 +7,7 @@ import ContentStore from 'stores/ContentStore.js';
 import ContentActions from 'actions/ContentActions.js';
 import Constants from 'constants';
 
-import { Col, Button, Input, Glyphicon, Well, Alert } from 'react-bootstrap';
+import { Col, Row, Button, Input, Glyphicon, Well, Alert } from 'react-bootstrap';
 import Comment from 'components/Comment/index.jsx';
 
 let getStateFromStore = () => {
@@ -77,10 +77,12 @@ class Search extends React.Component {
 
     handleBack() {
         var back = this.state.postKey-1;
+        ContentActions.PickComment(back);
         this.setState({postKey: (back > 0) ? back : 0});
     }
     handleNext() {
         var next = this.state.postKey+1;
+        ContentActions.PickComment(next);
         if (this.state.comments[next]) {
             this.setState({postKey: next});
         } else {
@@ -95,16 +97,14 @@ class Search extends React.Component {
         var currentComment = this.state.comments[this.state.postKey];
 
         return (
-            <Col xs={12} md={6}>
-                <Input type="text" value={this.state.searchQuery} ref="search" onChange={this.handleSearch} addonAfter={<Glyphicon glyph="search" />} placeholder="#cats" />
-                <Button onClick={this.handleBack}>Back comment</Button>
-                <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next comment</Button>
-                <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
-                <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
-                <Well style={{marginTop: '15px'}}>
-                    {(currentComment) ? currentComment.map((comment, key) => {return <Comment {...comment} handlePick={this.handlePick} key={key} Key={key}/>}) : <p>Loading...</p>}
-                </Well>
-                <Button style={{float: 'right'}} onClick={this.handlePickAll}>Pick Post</Button>
+            <Col xs={12} md={6} mdOffset={3}>
+                <Row>
+                    <Input type="text" value={this.state.searchQuery} ref="search" onChange={this.handleSearch} addonAfter={<Glyphicon glyph="search" />} placeholder="#cats" />
+                    <Button onClick={this.handleBack}>Back comment</Button>
+                    <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next comment</Button>
+                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
+                    <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
+                </Row>
             </Col>
         );
     }
