@@ -35,10 +35,11 @@ class Body extends React.Component {
 			<div>
 				<Navbar brand="with a twist">
 		          <Nav right>
+		          	<NavItem eventKey={1}>{(user.self) ? user.self.username : null}</NavItem>
 		            <NavItem eventKey={1}>{(user.token) ? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button>}</NavItem>
 		          </Nav>
 		        </Navbar>
-		        <div className="container">
+		        <div className="container this">
 					<RouteHandler user={this.state.user}/>
 				</div>
 			</div>

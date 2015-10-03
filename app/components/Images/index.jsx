@@ -44,7 +44,7 @@ class Images extends React.Component {
         header = (this.state.comment) ? this.state.comment : header;
 
         return (
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} className="insta-frame">
                 {(header) && <ProfileHeader {...header}/>}
                 <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} interval={0}>
                     <CarouselItem>

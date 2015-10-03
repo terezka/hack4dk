@@ -16,7 +16,6 @@ class Home extends React.Component {
         var user = this.props.user;
         return (
             <div>
-                <Col xs={12}>{(user.self) && <h1>Hello {user.self.full_name || user.self.username}</h1>}</Col>
                 <Search user={this.props.user} />
                 <Images/>
             </div>
