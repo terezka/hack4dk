@@ -13,5 +13,11 @@ export default {
 		dispatch(Actions.ADD_COMMENTS, {
 			response: response,
 		});
+	},
+	PickComment: (postKey, commentKey) => {
+		dispatch(Actions.PICK_COMMENT, {
+			postKey: postKey,
+			commentKey: commentKey
+		})
 	}
 }

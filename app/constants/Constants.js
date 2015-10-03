@@ -9,6 +9,8 @@ let Constants = {
 		ADD_COMMENTS: null,
 		RECEIVE_ERROR: null,
 
+		PICK_COMMENT: null,
+
 		AUTHORIZE_USER: null,
 		UNAUTHORIZE_USER: null
 	})

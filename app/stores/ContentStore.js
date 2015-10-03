@@ -9,6 +9,14 @@ class ContentStore extends BaseStore {
         this.subscribe(() => this._registerToActions.bind(this));
         this._comments = [];
         this._pagination = false;
+        this._postKey = 0;
+        this._commentKey = null;
+    }
+
+    get comment() {
+        var currentPost = this._comments[this._postKey];
+        var currentComment = currentPost && currentPost[this._commentKey];
+        return (currentComment) ? currentComment : null;
     }
 
     get comments() {
@@ -19,12 +27,22 @@ class ContentStore extends BaseStore {
         return this._pagination;
     }
 
+    get postKey() {
+        return this._postKey;
+    }
+
+    handlePickComment(postKey, commentKey) {
+        this._postKey = postKey;
+        this._commentKey = commentKey;
+    }
+
     handleRetrival(response) {
         var comments = response.data.map((post, key) => {
-            if (post.caption) {
-                return post.caption;
+            if (post.caption || post.comments.data.length > 0) {
+                return _.compact([post.caption].concat(post.comments.data));
             }
         });
+        this._postKey = this._comments.length;
         this._comments = this._comments.concat(_.compact(comments));
         this._pagination = response.pagination && response.pagination.next_url;
     }
@@ -34,6 +52,11 @@ class ContentStore extends BaseStore {
 
         case Actions.ADD_COMMENTS:
             this.handleRetrival(action.response);
+            this.emitChange();
+            break;
+
+        case Actions.PICK_COMMENT:
+            this.handlePickComment(action.postKey, action.commentKey);
             this.emitChange();
             break;
 
