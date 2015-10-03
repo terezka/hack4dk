@@ -7,17 +7,21 @@ import ContentStore from 'stores/ContentStore.js';
 import Constants from 'constants';
 
 import { Col, Carousel, CarouselItem } from 'react-bootstrap';
+import Comment from 'components/Comment/index.jsx';
+import Comments from 'components/Comments/index.jsx';
+import ProfileHeader from 'components/ProfileHeader/index.jsx';
 
 let getStateFromStore = () => {
     return { 
         images: ContentStore.images,
         pagination: ContentStore.pagination,
-        comment: ContentStore.comment //imageKey: ContentStore.imageKey,
+        comment: ContentStore.comment,
+        comments: ContentStore.comments //imageKey: ContentStore.imageKey,
     };
 };
 
 
-class Comments extends React.Component {
+class Images extends React.Component {
     constructor(props){
         super(props);
         this.state = getStateFromStore();
@@ -35,13 +39,16 @@ class Comments extends React.Component {
     }
 
     render() {
-        console.log(this.state.comment);
-        var comment = (this.state.comment) ? this.state.comment.text : null; 
+        var header = null; 
+        header = (this.state.comments) ? this.state.comments[0] : null;
+        header = (this.state.comment) ? this.state.comment : header;
+
         return (
             <Col xs={12} md={6}>
+                {(header) && <ProfileHeader {...header}/>}
                 <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} slide={false}>
                     <CarouselItem>
-                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/1.jpg')}/>
+                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/9.jpg')}/>
                     </CarouselItem>
                     <CarouselItem>
                         <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/2.jpg')}/>
@@ -53,7 +60,7 @@ class Comments extends React.Component {
                         <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/4.jpg')}/>
                     </CarouselItem>
                 </Carousel>
-                {(comment) && <div style={[style.caption]} className="carousel-caption"><p>{comment}</p></div>}
+                <Comments/>
             </Col>
         );
     }
@@ -80,4 +87,4 @@ let style = {
     }
 }
 
-export default Radium(Comments);
+export default Radium(Images);

@@ -20,6 +20,11 @@ class ContentStore extends BaseStore {
     }
 
     get comments() {
+        var currentPost = this._comments[this._postKey];
+        return (currentPost) ? currentPost : null;
+    }
+
+    get allComments() {
         return this._comments;
     }
 

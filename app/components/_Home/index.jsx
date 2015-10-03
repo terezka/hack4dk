@@ -5,7 +5,7 @@ import Color from 'color';
 import { getUserInfo } from 'utils/api.js';
 
 import { Col, Row } from 'react-bootstrap';
-import Comments from 'components/Comments/index.jsx';
+import Search from 'components/Search/index.jsx';
 import Images from 'components/Images/index.jsx';
 
 class Home extends React.Component {
@@ -17,7 +17,7 @@ class Home extends React.Component {
         return (
             <div>
                 <Col xs={12}>{(user.self) && <h1>Hello {user.self.full_name || user.self.username}</h1>}</Col>
-                <Comments user={this.props.user} />
+                <Search user={this.props.user} />
                 <Images/>
             </div>
         );

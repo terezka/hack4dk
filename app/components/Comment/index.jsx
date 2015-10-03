@@ -14,8 +14,9 @@ class Comment extends React.Component {
     render() {
         var props = this.props;
         return (
-            <p style={[style]} onClick={this.handlePick}>
-            	<b>{props.from.username}:</b> {props.text}
+            <p style={[style.std, this.props.handlePick && style.w_hover]} onClick={this.handlePick} className="comment">
+            	<span className="comment--username"><b>{props.from.username} </b></span>
+                <span className="comment--text">{props.text}</span>
             </p>
         );
     }
@@ -23,12 +24,16 @@ class Comment extends React.Component {
 
 import { colors } from 'style';
 var style = {
-    padding: '0.5em',
-    margin: '0',
-    ':hover': {
-        backgroundColor: '#79A3AD',
-        opacity: '0.9',
-        borderRadius: '3px'
+    std: {
+        padding: '0.25em',
+        margin: '0'
+    },
+    w_hover: {
+        ':hover': {
+            backgroundColor: '#79A3AD',
+            opacity: '0.9',
+            borderRadius: '3px'
+        }
     }
 };
 
