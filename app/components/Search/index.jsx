@@ -100,8 +100,8 @@ class Search extends React.Component {
             <Col xs={12} md={6} mdOffset={3}>
                 <Row>
                     <Input type="text" value={this.state.searchQuery} ref="search" onChange={this.handleSearch} addonAfter={<Glyphicon glyph="search" />} placeholder="#cats" />
-                    <Button onClick={this.handleBack}>Back comment</Button>
-                    <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next comment</Button>
+                    <Button onClick={this.handleBack}>Previous</Button>
+                    <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next</Button>
                     <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
                     <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
                 </Row>
