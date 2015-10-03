@@ -5,6 +5,7 @@ import Color from 'color';
 import { getInstaVarious, getUserInfo } from 'utils/api.js';
 import ContentStore from 'stores/ContentStore.js';
 import ContentActions from 'actions/ContentActions.js';
+import { Glyphicon } from 'react-bootstrap';
 
 class ProfilHeader extends React.Component {
     constructor(props){
@@ -14,8 +15,8 @@ class ProfilHeader extends React.Component {
     render() {
         return (
             <div className="profil-header">
-                <img className="profil-header--image" src={this.props.from.profile_picture}/>
-                <span className="profil-header--username"><b>{this.props.from.username}</b></span>
+                {(this.props.from) ? <img className="profil-header--image" src={this.props.from.profile_picture}/> : <Glyphicon glyph="refresh" className="loading"/> }
+                <span className="profil-header--username"><b>{(this.props.from) ? this.props.from.username : 'Loading...'}</b></span>
             </div>
         );
     }
