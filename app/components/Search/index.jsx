@@ -31,6 +31,7 @@ class Search extends React.Component {
         this.handleNext = this.handleNext.bind(this);
 
         this.handleFeed = this.handleFeed.bind(this);
+        this.handleSelf = this.handleSelf.bind(this);
         this.handlePopular = this.handlePopular.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
 
@@ -50,7 +51,9 @@ class Search extends React.Component {
     getCommments(searchQuery) {
         let query = this.state.pagination || Constants.Various.Instagram.URL+'users/self/feed';
         
-        if (searchQuery === 'feed') {
+        if (searchQuery === 'self') {
+            query = Constants.Various.Instagram.URL+'users/self/media/recent';
+        } else if (searchQuery === 'feed') {
             query = Constants.Various.Instagram.URL+'users/self/feed';
         } else if (searchQuery === 'popular') {
             query = Constants.Various.Instagram.URL+`media/popular`;
@@ -65,6 +68,9 @@ class Search extends React.Component {
 
     handleFeed() {
         this.getCommments('feed');
+    }
+    handleSelf() {
+        this.getCommments('self');
     }
     handlePopular() {
         this.getCommments('popular');
@@ -102,6 +108,7 @@ class Search extends React.Component {
                     <Input type="text" value={this.state.searchQuery} ref="search" onChange={this.handleSearch} addonAfter={<Glyphicon glyph="search" />} placeholder="#cats" />
                     <Button onClick={this.handleBack}>Previous</Button>
                     <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next</Button>
+                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleSelf}>Yours</Button>
                     <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
                     <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
                 </Row>
