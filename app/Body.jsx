@@ -33,10 +33,10 @@ class Body extends React.Component {
 		var user = this.state.user;
 		return (
 			<div>
-				<Navbar brand="with a twist">
-		          <Nav right>
+				<Navbar brand="with a twist" toggleNavKey={0}>
+		          <Nav right eventKey={0}>
 		          	<NavItem eventKey={1}>{(user.self) ? user.self.username : null}</NavItem>
-		            <NavItem eventKey={1}>{(user.token) ? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button>}</NavItem>
+		            <NavItem eventKey={2}>{(user.token) ? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button>}</NavItem>
 		          </Nav>
 		        </Navbar>
 		        <div className="container this">

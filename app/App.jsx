@@ -1,6 +1,6 @@
 import React from 'react';  
 import Router from 'react-router';  
-import { DefaultRoute, Link, NotFoundRoute, Route, RouteHandler } from 'react-router';
+import { DefaultRoute, Link, NotFoundRoute, Route, RouteHandler, Redirect } from 'react-router';
 import Radium, { Style } from 'radium'
 
 import Body from './Body.jsx';
@@ -13,6 +13,7 @@ let routes = (
   <Route name="body" path="/" handler={Body}>
     <Route name="home" path="/home" handler={Home}/>
     <Route name="auth" path="/instagram_token" handler={Auth}/>
+    <Route name="auth2" path="/instagram_token.html" handler={Auth}/>
     <DefaultRoute handler={Home}/>
     <NotFoundRoute handler={NotFound}/>
   </Route>

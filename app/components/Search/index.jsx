@@ -103,14 +103,14 @@ class Search extends React.Component {
         var currentComment = this.state.comments[this.state.postKey];
 
         return (
-            <Col xs={12} md={6} mdOffset={3}>
+            <Col xs={12} md={4} mdOffset={4}>
                 <Row>
                     <Input type="text" value={this.state.searchQuery} ref="search" onChange={this.handleSearch} addonAfter={<Glyphicon glyph="search" />} placeholder="#cats" />
-                    <Button onClick={this.handleBack}>Previous</Button>
-                    <Button style={{marginLeft: '15px'}} onClick={this.handleNext}>Next</Button>
-                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleSelf}>Yours</Button>
-                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Your feed</Button>
-                    <Button style={{float: 'right'}} onClick={this.handlePopular}>Search popular</Button>
+                    <Button onClick={this.handleBack}><Glyphicon glyph="chevron-left" /></Button>
+                    <Button style={{marginLeft: '15px'}} onClick={this.handleNext}><Glyphicon glyph="chevron-right" /></Button>
+                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleSelf}>You</Button>
+                    <Button style={{float: 'right', marginLeft: '15px'}} onClick={this.handleFeed}>Following</Button>
+                    <Button style={{float: 'right'}} onClick={this.handlePopular}>Popular</Button>
                 </Row>
             </Col>
         );

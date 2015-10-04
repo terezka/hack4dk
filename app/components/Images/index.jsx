@@ -43,11 +43,11 @@ class Images extends React.Component {
         header = (this.state.comments) ? this.state.comments[0] : null;
         header = (this.state.comment) ? this.state.comment : header;
 
-        var test = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        var test = Array.apply(null, Array(100)).map(Number.prototype.valueOf,0);
         var zeros = '000000';
 
         return (
-            <Col xs={12} md={6}  mdOffset={3} className="insta-frame">
+            <Col xs={12} md={4}  mdOffset={4} className="insta-frame">
                 <ProfileHeader {...header}/>
                 <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} interval={0}>
                     {test.map((t, key) => {
@@ -55,8 +55,8 @@ class Images extends React.Component {
                         var number = zeros.substr(0, 4-index.toString().length)+index;
                         var url = `http://maagen.org/photo/photo${number}.jpg`;
                         return (
-                            <CarouselItem key={key}>
-                                <img style={{margin: '0 auto'}} height={500} alt="900x500" src={url}/>
+                            <CarouselItem key={key} style={{backgroundImage: `url("${url}")`, backgroundSize: 'cover', backgroundPosition: 'center', height: 0,paddingBottom: '100%'}}>
+                                <img style={{opacity: 0}} height={500} alt="900x500" src={url}/>
                             </CarouselItem>
                         );
                     })}
