@@ -29,7 +29,7 @@ class Comments extends React.Component {
         return (
             <div className="comments">
                 {comments && comments.map((comment, key) => {
-                    return <Comment {...comment} handlePick={null}/>;
+                    return <Comment {...comment} handlePick={null} key={key}/>;
                 })}
             </div>
         );

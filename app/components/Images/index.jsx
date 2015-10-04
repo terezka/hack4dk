@@ -43,22 +43,23 @@ class Images extends React.Component {
         header = (this.state.comments) ? this.state.comments[0] : null;
         header = (this.state.comment) ? this.state.comment : header;
 
+        var test = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        var zeros = '000000';
+
         return (
             <Col xs={12} md={6}  mdOffset={3} className="insta-frame">
                 <ProfileHeader {...header}/>
                 <Carousel activeIndex={this.state.imageKey} direction={this.state.direction} onSelect={this.handleSelect} interval={0}>
-                    <CarouselItem>
-                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/9.jpg')}/>
-                    </CarouselItem>
-                    <CarouselItem>
-                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/2.jpg')}/>
-                    </CarouselItem>
-                    <CarouselItem>
-                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/3.jpg')}/>
-                    </CarouselItem>
-                    <CarouselItem>
-                        <img style={{margin: '0 auto'}} height={500} alt="900x500" src={require('images/4.jpg')}/>
-                    </CarouselItem>
+                    {test.map((t, key) => {
+                        var index = key+1;
+                        var number = zeros.substr(0, 4-index.toString().length)+index;
+                        var url = `http://maagen.org/photo/photo${number}.jpg`;
+                        return (
+                            <CarouselItem key={key}>
+                                <img style={{margin: '0 auto'}} height={500} alt="900x500" src={url}/>
+                            </CarouselItem>
+                        );
+                    })}
                 </Carousel>
                 <Comments/>
             </Col>
