@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+  		body {
+        width: 100%;
+        margin: 0;
+  		}
+      .navbar-nav li:first-child {
+        margin-top: 7.5px;
+      }
+      .carousel-control {
+        background-image: none !important;
+      }
+      .carousel-indicators {
+        display: none;
+      }
+      .glyphicon-chevron-right, .glyphicon-chevron-left {
+        color: #125688;
+      }
+      .profil-header {
+          padding: 0.5em;
+          padding-bottom: 1em;
+          min-height: 60px;
+      }
+      .profil-header--image {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+      }
+      .profil-header--username {
+          padding-left : 15px;
+      }
+      .comments {
+        padding: 0.5em 0;
+      }
+      .comment--text {
+          padding-left : 5px;
+          word-wrap: break-word;
+      }
+      .profil-header--username, .comment--username {
+        color: #125688;
+      }
+      .insta-logo, .navbar-brand {
+        margin-top: 1em;
+        margin-left: 15px !important;
+        display: block;
+        text-indent: 55px;
+        white-space: nowrap;
+        background-image: url(https://instagramstatic-a.akamaihd.net/bluebar/8090b48/cache/sprites/core-sprites-22ebc2.png);
+        background-repeat: no-repeat;
+        background-position: -186px -204px;
+        height: 28px;
+        width: 102px;
+      }
+
+      .container.this {
+          padding-top: 2em;
+      }
+
+      .loading {
+        margin-top: 0.5em;
+      }
+
+      .insta-frame {
+          margin-top: 2em;
+          margin-bottom: 10em;
+          padding: 1em;
+          border: 1px solid #edeeee;
+          border-radius: 3px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="http://localhost:3000/webpack-dev-server.js"></script>
+    <script src="vendors.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+@font-face {
+	font-family: "Icons";
+	src: url('./Icons.eot');
+	src: url('./Icons.eot?#iefix') format('eot'),
+		url('./Icons.woff') format('woff'),
+		url('./Icons.ttf') format('truetype'),
+		url('./Icons.svg#Icons') format('svg');
+}
+
+.icon:before {
+	font-family: "Icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-brushes3:before {
+	content: "\E001";
+}
+
+.icon-email5:before {
+	content: "\E002";
+}
+
+.icon-facebook2:before {
+	content: "\E003";
+}
+
+.icon-facebook30:before {
+	content: "\E004";
+}
+
+.icon-hand220:before {
+	content: "\E005";
+}
+
+.icon-hands11:before {
+	content: "\E006";
+}
+
+.icon-hands13:before {
+	content: "\E007";
+}
+
+.icon-instagram19:before {
+	content: "\E008";
+}
+
+.icon-note55:before {
+	content: "\E009";
+}
+
+.icon-paintbrush8:before {
+	content: "\E00A";
+}
+
+.icon-pen27:before {
+	content: "\E00B";
+}
+
+.icon-pen43:before {
+	content: "\E00C";
+}
+
+.icon-play125:before {
+	content: "\E00D";
+}
+
+.icon-twitter:before {
+	content: "\E00E";
+}
